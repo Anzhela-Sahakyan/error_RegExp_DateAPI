@@ -1,0 +1,82 @@
+// class Car {
+//   constructor(color, name) {
+//     // this = {}
+//     this.color = color;
+//     this.name = name;
+//     this.number = Math.floor(Math.random() * 10000);
+//     // return this
+//   }
+
+//   start() {
+//     console.log(`Car n ${this.number} started`);
+//   }
+
+//   break() {
+//     console.log(`Car n ${this.number} stopped`);
+//   }
+
+//   accelarate() {
+//     console.log(`Car n ${this.number} accelarates`);
+//   }
+// }
+
+// class ElectricCar extends Car {
+//   constructor(color, name, voltage) {
+//     super(color, name);
+//     // this = new Car(color, name);
+//     this.voltage = voltage;
+//     this.new = true;
+//   }
+
+//   start() {
+//     console.log("Electric Car is prepared to start");
+//     super.start();
+//   }
+
+//   break() {
+//     console.log("Electric car is powered off");
+//   }
+// }
+
+// const car = new Car("Black", "BMW");
+// const car2 = new Car("Crimson", "aaaa");
+// const elCar = new ElectricCar("White", "Tesla");
+// // console.log(car);
+
+// // car.start();
+// // car2.start();
+
+// elCar.start();
+// elCar.accelarate();
+// elCar.break();
+
+class Article {
+  constructor(title, date) {
+    this.title = title;
+    this.date = date;
+  }
+
+  static compare(articleA, articleB) {
+    return articleA.date - articleB.date;
+  }
+
+  static createTodays() {
+    // remember, this = Article
+    return new this("Today's digest", new Date());
+  }
+}
+
+// usage
+let articles = [
+  new Article("HTML", new Date(2019, 1, 1)),
+  new Article("CSS", new Date(2019, 0, 1)),
+  new Article("JavaScript", new Date(2019, 11, 1)),
+];
+
+const art = new Article("adsa", new Date());
+
+articles.sort(Article.compare);
+
+Article.createTodays();
+
+// console.log(articles[0].title); // CSS
