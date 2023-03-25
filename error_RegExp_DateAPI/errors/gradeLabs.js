@@ -3,7 +3,6 @@ function gradeLabs(array) {
   for (let i = 0; i < array.length; i++) {
     try {
       if (!array[i].runLab) {
-        debugger;
         throw new Error(`Error thrown for ${array[i].student}`);
       }
       result = array[i].runLab(3);
